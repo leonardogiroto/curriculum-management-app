@@ -1,0 +1,33 @@
+.details-card {
+  overflow-y: scroll;
+  height: calc(100vh - 162px);
+
+  agm-map {
+    height: 200px;
+  }
+
+  p {
+    margin: 10px 0px;
+
+    &.lat-lng {
+      text-align: center;
+    }
+  }
+
+  .mat-card-title {
+    margin-bottom: 8px;
+  }
+  .mat-card-subtitle {
+    font-size: 12px;
+  }
+
+  .tags {
+    padding: 5px 0px 8px 0px;
+
+    .mat-chip {
+      border: 1px solid var(--primary-color);
+      background: white;
+      color: var(--primary-color);
+    }
+  }
+}

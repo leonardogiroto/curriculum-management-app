@@ -1,0 +1,39 @@
+<div class="add-experience" >
+
+  <h2>Adicionar Experiência Profissional</h2>
+
+  <form [formGroup]="formGroup" >
+
+    <mat-form-field>
+      <input matInput placeholder="Empresa" formControlName="company_name" >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Cargo" formControlName="role" >
+    </mat-form-field>
+
+    <div class="pickers-container" >
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Início" formControlName="start_date" >
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [matDatepicker]="pickerEnd" placeholder="Fim" formControlName="end_date" >
+        <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+        <mat-datepicker #pickerEnd></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+  </form>
+
+  <button mat-button mat-raised-button color="default" (click)="dismiss()" >
+    Voltar
+  </button>
+  <button mat-button mat-raised-button color="primary"
+    [disabled]="!formGroup.valid" (click)="addFormation()" >
+    Adicionar
+  </button>
+
+</div>

@@ -1,0 +1,14 @@
+p.concluded,
+p.not-concluded {
+  display: flex;
+
+  .mat-icon {
+    font-size: 18px;
+  }
+}
+p.concluded {
+  color: green;
+}
+p.not-concluded {
+  color: var(--primary-color);
+}

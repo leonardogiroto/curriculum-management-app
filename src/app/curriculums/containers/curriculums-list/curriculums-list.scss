@@ -1,0 +1,39 @@
+.curriculums-view {
+  display: flex;
+
+  .curriculums-list {
+    flex: 3;
+    margin: 10px;
+    height: calc(100vh - 115px);
+
+    .mat-table {
+      width: 100%;
+      height: calc(100% - 55px);
+
+      img {
+        border-radius: 100%;
+      }
+      a.view-curriculum {
+        text-decoration: underline;
+        color: #3f51b5;
+        cursor: pointer;
+      }
+    }
+  }
+  .selected-curriculum {
+    flex: 2;
+    margin: 10px;
+    height: calc(100vh - 115px);
+  }
+}
+
+:host {
+  width: calc(100vw - 30px);
+  position: absolute;
+}
+
+@media only screen and (max-width : 768px) {
+  .curriculums-view {
+    display: initial;
+  }
+}

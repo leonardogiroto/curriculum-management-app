@@ -1,0 +1,60 @@
+<app-empty-state *ngIf="!curriculum"
+></app-empty-state>
+
+<mat-card class="details-card" *ngIf="curriculum" >
+
+  <mat-card-header>
+
+    <div mat-card-avatar >
+      <img [src]="curriculum.picture" alt="candidate picture" />
+    </div>
+
+    <mat-card-title>
+      {{ curriculum.name }}
+    </mat-card-title>
+
+    <mat-card-subtitle>
+      Currículo registrado em: {{ curriculum.created_at | date : 'dd/MM/yyyy' }}
+    </mat-card-subtitle>
+
+  </mat-card-header>
+
+  <mat-card-content>
+
+    <div class="tags" >
+      <mat-chip-list >
+        <mat-chip color="primary" selected="true" *ngFor="let tag of getTagsList(curriculum.tags)" >
+          {{ tag }}
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+
+    <p><b>Data de Nascimento:</b> {{ curriculum.birthdate | date : 'dd/MM/yyyy' }}</p>
+    <p><b>Gênero:</b> {{ genderDisplay[curriculum.gender] }}</p>
+    <p><b>E-mail:</b> {{ curriculum.email }}</p>
+    <p><b>Telefone:</b> {{ curriculum.phone }}</p>
+
+    <ng-container *ngIf="curriculum.formations.length > 0" >
+      <p><b>Formações:</b></p>
+      <app-formations
+        [formations]="curriculum.formations"
+      ></app-formations>
+    </ng-container>
+
+    <ng-container *ngIf="curriculum.professional_experiences.length > 0" >
+      <p><b>Experiências Profissionais:</b></p>
+      <app-professional-experiences
+        [experiences]="curriculum.professional_experiences"
+      ></app-professional-experiences>
+    </ng-container>
+
+    <p><b>Endereço:</b> {{ curriculum.address }}</p>
+    <agm-map [latitude]="curriculum.latitude" [longitude]="curriculum.longitude">
+      <agm-marker [latitude]="curriculum.latitude" [longitude]="curriculum.longitude"></agm-marker>
+    </agm-map>
+    <p class="lat-lng" >
+      <b>latitude:</b> {{ curriculum.latitude }}, <b>longitude:</b> {{ curriculum.longitude }}
+    </p>
+
+  </mat-card-content>
+</mat-card>

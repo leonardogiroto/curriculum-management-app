@@ -1,0 +1,94 @@
+<mat-card class="add-curriculum" >
+  <mat-card-content>
+    <h2>Novo Currículo</h2>
+
+    <form [formGroup]="formGroup" >
+
+      <input type="file" placeholder="Imagem" formControlName="picture" >
+
+      <mat-form-field>
+        <input matInput placeholder="Nome Completo" formControlName="name" >
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="E-mail" formControlName="email" >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Gênero" formControlName="gender" >
+          <mat-option value="male">Homem</mat-option>
+          <mat-option value="female">Mulher</mat-option>
+          <mat-option value="other">Outro</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Data de Nascimento" formControlName="birthdate" >
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Telefone" formControlName="phone" >
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Endereço" formControlName="address" >
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Latitude" formControlName="latitude" >
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Longitude" formControlName="longitude" >
+      </mat-form-field>
+
+      <h4 class="tags-title" >Tags:</h4>
+      <mat-form-field>
+        <input matInput placeholder="Digite a tag e pressione enter" (keyup.enter)="addTag($event)" >
+      </mat-form-field>
+      <div class="tags" *ngIf="formGroup.get('tags').value.length > 0" >
+        <mat-chip-list >
+          <mat-chip color="primary" selected="true" *ngFor="let tag of formGroup.get('tags').value" >
+            {{ tag }}
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+
+      <ng-container *ngIf="formGroup.get('formations').value.length > 0" >
+        <h4>Formações:</h4>
+        <app-formations
+          [formations]="formGroup.get('formations').value"
+        ></app-formations>
+      </ng-container>
+      <div class="btn-container" >
+        <button mat-button mat-raised-button color="accent" type="button"
+          (click)="openAddFormationDialog()" >
+          Adicionar Formação
+        </button>
+      </div>
+
+      <ng-container *ngIf="formGroup.get('professional_experiences').value.length > 0" >
+        <h4>Experiências Profissionais:</h4>
+        <app-professional-experiences
+          [experiences]="formGroup.get('professional_experiences').value"
+        ></app-professional-experiences>
+      </ng-container>
+      <div class="btn-container" >
+        <button mat-button mat-raised-button color="primary" type="button"
+          (click)="openAddProfExperienceDialog()" >
+          Adicionar Experiência Profissional
+        </button>
+      </div>
+    </form>
+
+    <div class="save-btn-container" >
+      <button mat-button mat-raised-button color="primary" type="button"
+        [disabled]="!formGroup.valid" (click)="saveCurriculum()" >
+        Salvar
+      </button>
+    </div>
+
+  </mat-card-content>
+</mat-card>

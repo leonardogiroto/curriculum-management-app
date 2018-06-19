@@ -1,0 +1,19 @@
+.empty-state {
+  overflow-y: scroll;
+  height: calc(100vh - 160px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  i {
+    font-size: 5em;
+    color: var(--primary-color);
+  }
+  p {
+    font-size: 1.25em;
+    font-family: 'Roboto';
+    line-height: 1.5em;
+  }
+}
