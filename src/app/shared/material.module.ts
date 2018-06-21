@@ -16,7 +16,8 @@ import {
   MatSelectModule,
   MatSnackBarModule,
   MatTableModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 
 @NgModule({
@@ -35,6 +36,7 @@ import {
     MatIconModule,
     MatSelectModule,
     MatPaginatorModule,
+    MatProgressSpinnerModule,
     MatSnackBarModule,
     MatTableModule,
     MatToolbarModule
@@ -53,6 +55,7 @@ import {
     MatIconModule,
     MatSelectModule,
     MatPaginatorModule,
+    MatProgressSpinnerModule,
     MatSnackBarModule,
     MatTableModule,
     MatToolbarModule

@@ -8,8 +8,21 @@
   margin: 0 auto;
   min-width: 500px;
 
-  input[type="file"] {
-    margin-bottom: 20px;
+  .upload-button {
+    cursor: pointer;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+
+    img {
+      width: 50px;
+      border-radius: 100%;
+      margin-bottom: 10px;
+    }
+    a {
+      text-decoration: underline;
+      color: var(--primary-color);
+    }
   }
   .mat-form-field {
     width: 48%;

@@ -2,6 +2,11 @@
   overflow-y: scroll;
   height: calc(100vh - 162px);
 
+  img {
+    border-radius: 100%;
+    width: 100%;
+  }
+
   agm-map {
     height: 200px;
   }

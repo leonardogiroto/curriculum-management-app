@@ -4,7 +4,12 @@
 
     <form [formGroup]="formGroup" >
 
-      <input type="file" placeholder="Imagem" formControlName="picture" >
+      <div class="upload-button" (click)="uploadToCloudinary()" >
+        <img [src]="formGroup.get('picture').value || 'http://placehold.it/32x32'" />
+        <a>
+          {{ true ? 'Enviar' : 'Trocar' }} Imagem
+        </a>
+      </div>
 
       <mat-form-field>
         <input matInput placeholder="Nome Completo" formControlName="name" >
@@ -49,11 +54,15 @@
         <input matInput placeholder="Digite a tag e pressione enter" (keyup.enter)="addTag($event)" >
       </mat-form-field>
       <div class="tags" *ngIf="formGroup.get('tags').value.length > 0" >
-        <mat-chip-list >
-          <mat-chip color="primary" selected="true" *ngFor="let tag of formGroup.get('tags').value" >
+        <mat-chip-list>
+          <mat-chip color="primary" selected="true"
+            *ngFor="let tag of formGroup.get('tags').value; let index = index"
+            (dblclick)="removeTag(index)" >
             {{ tag }}
           </mat-chip>
         </mat-chip-list>
+        <br>
+        <b>Obs:</b> double-click nas tags para removê-las.
       </div>
 
       <ng-container *ngIf="formGroup.get('formations').value.length > 0" >

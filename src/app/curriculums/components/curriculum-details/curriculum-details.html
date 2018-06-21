@@ -49,7 +49,7 @@
     </ng-container>
 
     <p><b>Endereço:</b> {{ curriculum.address }}</p>
-    <agm-map [latitude]="curriculum.latitude" [longitude]="curriculum.longitude">
+    <agm-map [zoom]="10" [latitude]="curriculum.latitude" [longitude]="curriculum.longitude">
       <agm-marker [latitude]="curriculum.latitude" [longitude]="curriculum.longitude"></agm-marker>
     </agm-map>
     <p class="lat-lng" >

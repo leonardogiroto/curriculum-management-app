@@ -1,9 +1,19 @@
 .mat-toolbar.mat-primary {
   display: flex;
   justify-content: space-between;
+  padding: 0px 30px;
 
   .add-curriculum,
   .title {
     cursor: pointer;
+  }
+  .add-curriculum {
+    display: flex;
+    align-items: center;
+
+    .mat-icon {
+      font-size: 23px;
+      margin-right: 5px;
+    }
   }
 }

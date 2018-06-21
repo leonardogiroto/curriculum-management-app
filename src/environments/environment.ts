@@ -1,4 +1,6 @@
 export const environment = {
-  apiUrl: 'http://localhost:3000/',
+  apiUrl: 'https://curriculum-management-api.herokuapp.com/',
+  cloudName: 'dz37lftnt',
+  uploadPreset: 'bhbyvncc',
   production: false
 };

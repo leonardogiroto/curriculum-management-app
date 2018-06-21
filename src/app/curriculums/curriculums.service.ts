@@ -11,8 +11,8 @@ export class CurriculumService {
 
   constructor(private _http: HttpClient) { }
 
-  public getCurriculums(page: number = 1, per_page: number = 10): Observable<any> {
-    const queryParams = `?page=${page}&per_page=${per_page}`;
+  public getCurriculums(page: number = 0, per_page: number = 10): Observable<any> {
+    const queryParams = `?page=${page + 1}&per_page=${per_page}`;
     return this._http.get(this.apiUrl + 'curriculums' + queryParams);
   }
 
